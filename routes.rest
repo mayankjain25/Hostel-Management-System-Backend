@@ -1,0 +1,3 @@
+# GET http://localhost:5001/users/abcd
+
+GET http://localhost:5001/users/42069@kiit.ac.in
