@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/schema')
-const cors = require('cors')
+// const cors = require('cors')
 
-router.use(cors())
+// router.use(cors())
 
 
 router.get('/',(req,res)=>{
@@ -14,6 +14,10 @@ router.get('/',(req,res)=>{
 //Get a particular user from the database
 router.get('/:id', async (req, res)=>{
     const reply = await User.findOne({email:req.params.id})
+
+    if(!reply){
+        res.send('User not found')
+    }
     console.log(reply)
     res.send(reply)
 }

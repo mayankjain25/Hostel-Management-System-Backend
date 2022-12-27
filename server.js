@@ -33,9 +33,12 @@ db.once('open', ()=>console.log('Connected to MongoDB'))
 
 // console.log(db.collections())
 app.use(express.json())
-app.use(cors())
+app.use(cors()) 
 
 const usersRouter = require('./routes/users')
 app.use('/users', usersRouter)
+
+const issuesRouter = require('./routes/issues')
+app.use('/issues', issuesRouter)
 
 app.listen(5001, ()=>console.log('Server started on port 5000'))
