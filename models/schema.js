@@ -8,7 +8,7 @@ const userSchema= new mongoose.Schema({
     },
     rollNumber:{
         type:Number,
-        required:true,
+        required:true, 
         unique:true
     },
     email:{

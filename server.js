@@ -1,9 +1,12 @@
 require('dotenv').config()
 const express = require('express');
 const app = express();
+
 const mongoose = require('mongoose');
+
 const cors = require('cors')
 
+const PORT = process.env.PORT || 5001;
 
 
 
@@ -41,4 +44,7 @@ app.use('/users', usersRouter)
 const issuesRouter = require('./routes/issues')
 app.use('/issues', issuesRouter)
 
-app.listen(5001, ()=>console.log('Server started on port 5000'))
+const adminRouter = require('./routes/admin')
+app.use('/admin', adminRouter)
+
+app.listen(PORT, ()=>console.log(`Server started on port ${PORT}}`))

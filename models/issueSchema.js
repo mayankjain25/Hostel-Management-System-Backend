@@ -17,7 +17,7 @@ const issueSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    student: mongoose.Schema.Types.ObjectId
+    student: mongoose.Schema.Types.ObjectId 
 
 })
 

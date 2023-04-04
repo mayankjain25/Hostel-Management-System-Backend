@@ -6,3 +6,11 @@ GET http://localhost:5001/users/42069@kiit.ac.in
 ###
 
 GET http://localhost:5001/issues/
+
+###
+
+GET http://localhost:5001/issues/63a1bad1398012f50e07c3b2
+
+###
+
+POST http://localhost:5001/admin/createAdmin

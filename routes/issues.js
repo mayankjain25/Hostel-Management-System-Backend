@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/schema')
 const Issue = require('../models/issueSchema')
+const ObjectId = require('mongodb').ObjectId; 
+
 // const cors = require('cors')
 
 // router.use(cors())
@@ -29,6 +31,19 @@ router.post('/:id',async (req,res)=>{
     // issue.save()
     res.send('ok')
 })
+
+router.get('/:id', async (req, res)=>{
+    const id = req.params.id.substring(1,req.params.id.length-1);
+    const reply = await Issue.find({student:ObjectId(req.params.id)})
+    if(!reply){
+        res.send('User not found')
+    }
+    console.log(reply)
+    // console.log(reply.json())
+    res.send(reply)
+
+})
+
 
 
 module.exports = router
