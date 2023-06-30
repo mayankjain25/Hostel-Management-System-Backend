@@ -23,4 +23,18 @@ router.post('/login',async (req,res)=>{
     else res.send({status:'Login Successful'})
 })
 
+//Get a particular admin from the database
+router.get('/:id', async (req, res)=>{
+    const reply = await Admin.findOne({email:req.params.id})
+
+    if(!reply){
+        res.send('User not found')
+    }
+    else{
+        const payload = JSON.stringify(reply)
+        res.send(payload)
+    }
+}
+)
+
 module.exports=router
