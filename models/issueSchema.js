@@ -9,6 +9,10 @@ const issueSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    hostelName:{
+        type: String,
+        required:true
+    },
     status:{
         type:String,
         required:true

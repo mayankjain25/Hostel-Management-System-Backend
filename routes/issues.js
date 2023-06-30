@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../models/schema')
 const Issue = require('../models/issueSchema')
 const ObjectId = require('mongodb').ObjectId; 
 
@@ -18,10 +17,13 @@ router.post('/:id',async (req,res)=>{
     const issue = {
         title:req.body.title,
         description:req.body.description,
+        hostelName: req.body.hostelName,
         status:req.body.status,
         priority:req.body.priority,
         student:req.params.id.substring(1,req.params.id.length-1)
     }
+
+    console.log(issue)
 
     const newIssue = await Issue.create(issue)
     if(!newIssue){
