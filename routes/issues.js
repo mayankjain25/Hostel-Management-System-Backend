@@ -34,6 +34,22 @@ router.post('/:id',async (req,res)=>{
     res.send('ok')
 })
 
+//Getting all issues by hostel name
+
+router.get('/hostel/:hostelName', async (req, res)=>{
+    const hostelName = req.params.hostelName.substring(0,req.params.hostelName.length);
+    const issueData = await Issue.find({hostelName:hostelName})
+    if(!issueData){{
+        res.send({
+            error:'No issues found'
+        })
+    }}
+    else{
+        res.send(issueData)
+    }
+})
+
+
 router.get('/:id', async (req, res)=>{
     const id = req.params.id.substring(1,req.params.id.length-1);
     const reply = await Issue.find({student:ObjectId(req.params.id)})
