@@ -38,6 +38,9 @@ db.once('open', ()=>console.log('Connected to MongoDB'))
 app.use(express.json())
 app.use(cors()) 
 
+app.get("/", (req, res)=>{
+    res.send("All systems running!")
+})
 const usersRouter = require('./routes/users')
 app.use('/users', usersRouter)
 

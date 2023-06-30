@@ -2,7 +2,7 @@ const router= require('express').Router();
 const Admin = require('../models/adminSchema');
 
 router.post('/createAdmin',async (req,res)=>{
-    console.log(req.body)
+    // console.log(req.body)
     const admin = await Admin.create(req.body);
     if(!admin){
         res.send({error:'Admin not created'})
